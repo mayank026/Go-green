@@ -1,0 +1,23 @@
+{% extends 'navigation.html' %}
+{% load static %}
+{% block body %}
+
+
+<style>
+.prjdiv:hover{
+box-shadow:0 0 20px 0 rgba(0,0,0,0.3);
+transform:translateY(-20px)
+}
+</style>
+
+&nbsp;
+<br> <br>
+<section class="container my-5 shadow bg-white">
+    <div class ="row text-center py-5">
+        <div class="col-12">
+            <img src="{% static 'images/404.png' %}" >
+        </div>
+    </div>
+</section>
+
+{% endblock %}

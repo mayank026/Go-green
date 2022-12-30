@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+  <title>Go Green</title>
+  <link rel="icon" href="images/favicon.ico">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  <link rel = stylesheet href = "//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+  <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+<script>
+    $(document).ready( function () {
+    $('#myTable').DataTable();
+} );
+  </script>
+  <style>
+  * {
+  box-sizing: border-box;
+}
+
+#myInput {
+  background-image: url('/css/searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 20%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+#myTable {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #ddd;
+  font-size: 18px;
+}
+
+#myTable th {
+  text-align: left;
+  padding: 12px;
+  background-color: green;
+  color: white;
+}
+
+
+#myTable td {
+  text-align: left;
+  padding: 12px;
+  background-color: white;
+}
+
+#myTable tr {
+  border-bottom: 1px solid #ddd;
+}
+
+#myTable tr.header, #myTable tr:hover {
+  background-color: #f1f1f1;
+}
+
+.button {
+  background-color: orange; /* Green */
+  border: none;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 1px 1px;
+  cursor: pointer;
+}
+
+
+.button1 {border-radius: 15px;}
+
+  /* Make the image fully responsive */
+  .carousel-inner img {
+      width: 100%;
+      height: 100%;
+  }
+  </style>
+  
+  
+  <style>
+/* width */
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #343a40;
+  
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #343a40;
+}
+
+.nav-link:hover{
+  color: lightblue !important;
+  font-weight:bold;
+  background-color : #931B86;
+  border-radius:10px
+}
+.nav-link{
+  font-weight:bold;
+}
+
+.navbar-brand{
+ 
+  text-shadow: 1px 1px lightblue;
+  
+}
+.navbar-brand:hover{
+  color: #80F5D3 !important;
+ 
+  
+}
+.badge {
+  padding-left: 9px;
+  padding-right: 9px;
+  -webkit-border-radius: 9px;
+  -moz-border-radius: 9px;
+  border-radius: 5px;
+}
+
+.label-warning[href],
+.badge-warning[href] {
+  background-color: #c67605;
+}
+#lblCartCount {
+    font-size: 12px;
+    background: #ff0000;
+    color: #fff;
+    padding: 0 5px;
+    vertical-align: top;
+    margin-left: -10px; 
+}
+</style>
+  
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body style="background-color:white">
+
+  
+<nav class="navbar navbar-expand-sm bg-dark" >
+  <!-- Brand -->
+  
+  <a class="navbar-brand pl-4" href="{% url 'home' %}" style="color:white ; font-weight : bold"><h3>Go Green</h3></a>
+<button class="navbar-toggler text-dark" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+<div class="collapse navbar-collapse" id="collapsibleNavbar">
+  <!-- Links -->
+  {% if request.user.is_staff %}
+  <ul class="navbar-nav mr-auto pl-4">
+    
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'admin_home' %}" style="color:white"><h5 class="font-weight-bold mr-2"></h5>Home</a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" href="{% url 'view_user' %}" style="color:white"><h5 class="font-weight-bold mr-2"></h5>View User</a>
+    </li>
+      <li class="nav-item">
+      <a class="nav-link" href="{% url 'admin_viewBooking' %}" style="color:white"><h5 class="font-weight-bold mr-2"></h5>View Booking</a>
+    </li>
+    <li class="nav-item">
+          <a class="nav-link" href="{% url 'view_feedback' %}" style="color:white"><h5 class="font-weight-bold mr-2"></h5>View Feedback</a>
+        </li>
+
+    </li>
+
+      <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" style="color:white"><h5 class="font-weight-bold"></h5>Product</a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="{% url 'add_product' %}">Add Product</a>
+        <a class="dropdown-item" href="{% url 'admin_view_product' %}">View Product</a>
+      </div>
+    </li>
+
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" style="color:white"><h5 class="font-weight-bold"></h5>Category</a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="{% url 'add_categary' %}">Add Category</a>
+        <a class="dropdown-item" href="{% url 'view_categary' %}">View Category</a>
+      </div>
+    </li>
+
+      <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" style="color:white"><h5 class="font-weight-bold"></h5>Blog</a>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" href="{% url 'add_blogpost' %}">Add Post</a>
+        <a class="dropdown-item" href="{% url 'view_blogpost' %}">View Post</a>
+      </div>
+    </li>
+   
+  </ul>
+  <div class=" my-2 my-lg-0">
+    <a class="nav-link mr-sm-2" href="{% url 'logout' %}" style="color:white;text-align:left"><h5 class="font-weight-bold"></h5>logout<i class="bi bi-box-arrow-in-right mr-2"></i></a>
+  </div>
+    {% elif request.user.username %}
+    <ul class="navbar-nav mr-auto px-5">
+    <li class="nav-item ">
+      <a class="nav-link" href="{% url 'home' %}" style="color:white"><h5 class="font-weight-bold"><i class="bi bi-house-fill mr-2"></i>Home</h5></a>
+    </li>
+
+    <li class="nav-item  pr-3">
+      <a class="nav-link" href="{% url 'send_feedback' request.user.id %}" style="color:white"><h5 class="font-weight-bold"><i class="bi bi-file-earmark-text mr-2"></i>Feedback</h5></a>
+    </li>
+    <li class="nav-item  pr-3">
+      <a class="nav-link" href="{% url 'view_product' 0 %}" style="color:white"><h5 class="font-weight-bold"><i class="bi bi-list-columns-reverse mr-2"></i>Products</h5></a>
+    </li>
+    
+    <li class="nav-item  pr-3">
+      <a href="{% url 'cart' %}" class="text-white nav-link">
+        <h5 class="font-weight-bold"><i class="bi bi-cart-check-fill"></i> 
+        <span class="badge badge-warning" id='lblCartCount' style="color:white">{{num1}}</span> Cart
+      </h5>
+      </a>
+    
+        </li>
+
+    </ul>
+    <div class="nav-item dropdown  my-lg-0 pr-4">
+      <div class="nav-link text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <h5 class="font-weight-bold"><i class="bi bi-person-lines-fill mr-2"></i>{{request.user.username}}</h5>
+        
+      </div>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" href="{% url 'profile' %}">Profile
+        </a>
+        <a class="dropdown-item" href="{% url 'view_booking' %}">My Orders</a>
+        <!-- <a class="dropdown-item" href="{% url 'change_password' %}">Change Password</a> -->
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+      </div>
+    </div>
+    {% else %}
+    <ul class="navbar-nav mr-auto px-5">
+    <li class="nav-item pr-3">
+      <a class="nav-link" href="{% url 'home'  %}" style="color:white"><h5 class="font-weight-bold"><i class="bi bi-house-fill mr-2"></i>Home</h5></a>
+    </li>
+
+    <li class="nav-item pr-3">
+      <a class="nav-link" href="{% url 'about' %}" style="color:white"><h5 class="font-weight-bold"><i class="bi bi-vector-pen mr-2"></i> About </h5></a>
+    </li>
+
+    <li class="nav-item pr-3">
+      <a class="nav-link float-right" href="{% url 'contact' %}" style="color:white"><h5 class="font-weight-bold"><i class="bi bi-envelope-at-fill mr-2"></i>Contact</h5></a>
+    </li>
+
+    <li class="nav-item pr-3">
+      <a class="nav-link" href="{% url 'blogs' %}" style="color:white"><h5 class="font-weight-bold"><i class="bi bi-file-post mr-2"></i>Blog</h5></a>
+    </li>
+    
+    
+    
+      <!-- <li class="nav-item">
+            <a class="nav-link" href="{% url 'login_admin' %}" style="color:white;text-align:right"><ion-icon style="margin-right:2px" name="log-in-sharp"></ion-icon>Admin Login</a>
+      </li> -->
+
+    </ul>
+    <div class=" my-2 my-lg-0">
+      <a class="nav-link mr-sm-2" href="{% url 'login' %}" style="color:white;text-align:left"><h5 class="font-weight-bold"><i class="bi bi-box-arrow-in-right mr-2"></i>login </h5></a>
+    </div>
+    
+    {%endif%}
+
+</div>
+
+</nav>
+
+{% block body %}
+
+{% endblock %}
+
+
+
+</body></html>

@@ -1,0 +1,166 @@
+{% extends 'navigation.html' %}
+{% load static %}
+{% block body %}
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+<style>
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button
+    {
+       -webkit-appearance: none;
+       margin: 0;
+    }
+
+    .bg-theme
+    {
+        background-image: url(/media/contact1.jpg);
+    }
+
+    .card-contact
+    {
+        margin-left: -130px;
+    }
+
+    .card-contact h1
+    {
+        font-weight: 600;
+        position: relative;
+        font-size: 37px;
+        margin-bottom: 0;
+    }
+    .card-contact h1::before
+    {
+        content: "";
+        height: 3px;
+        width: 80px;
+        background-color: white;
+        position: absolute;
+        bottom: -10px;
+    }
+
+    .icon-part
+    {
+        height: 40px;
+        width: 40px;
+        color: white;
+        font-size: 32px;
+        margin-inline-start: 24px;
+        margin-top: 10px;
+    }
+
+    .btn-submit
+    {
+        padding: 8px 19px;
+        background-color: rgb(28, 38, 185);
+    }
+    /* .main
+    {
+         background-color: #3E6239 
+    } */
+
+</style>
+
+<section class="main-contact-section py-5 bg-dark">
+    <div class="main pt-1 pb-3 mx-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-white text-center">
+                <h3>Need help ?</h3>
+                <h6>let's ask your questions</h6>
+            </div>
+        </div>
+
+        {% for message in messages %}
+   <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong> {{message}}</strong> 
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    {% endfor %}
+    
+        <div class="row justify-content-center">
+            <div class="col-lg-10 col-md-10 col-sm-10">
+                <div class="card card-body border-0 shadow">
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <div class="card card-body card-contact bg-theme">
+                                <h1 class="text-white">Contact Us</h1>
+                                <br /><br />
+                                <div class="media mb-1 align-items-center">
+
+                                    <div class="icon-part">
+                                        <i class="bi bi-geo-alt-fill"></i>
+                                    </div>
+                                    <div class="media-body text-warning">
+                                        <h2 class="mt-1 ml-4 ">
+                                            Office Location
+                                        </h2>
+                                        <p class="h6 ml-4"> Go green <br /> PG Hostel  <br/> MNNIT,
+                                            Allahabad<br/> 211004
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="media mb-1 align-items-center">
+
+                                    <div class="icon-part my-3">
+                                        <i class="bi bi-envelope"></i>
+                                    </div>
+                                    <div class="media-body">
+                                        <h5 class="mt-2 ml-4 text-success">gogreen@gmail.com</h5>
+                                    </div>
+                                </div>
+                                <div class="media mb-1 align-items-center">
+
+                                    <div class="icon-part my-3">
+                                        <i class="bi bi-phone"></i>
+                                    </div>
+                                    <div class="media-body">
+                                        <h5 class="mt-3 ml-4 text-danger">+91 | 1234567890</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-7">
+                            <form method="POST" action="{% url 'contact' %}">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    <label for="name">Name</label>
+                                    <input type="text" class="form-control" id="name" name="name"
+                                        aria-describedby="emailHelp" placeholder="Name" required/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" class="form-control" id="email" name="email"
+                                        placeholder="Email" required/>
+                                </div>
+                                <div class="form-group">
+                                    <label for="number">Mobile Number</label>
+                                    <input type="number" class="form-control" id="mobile" name="phone"
+                                        placeholder="Phone Number" required />
+                                </div>
+                                <div class="form-group">
+                                    <label for="message">Message</label>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"
+                                        name="message" placeholder="Any query" required></textarea>
+                                </div>
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-submit text-white">
+                                        Send <i class="bi bi-send"></i>
+                                    </button>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+</body>
+
+{% endblock %}

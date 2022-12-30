@@ -1,0 +1,76 @@
+
+{% extends 'navigation.html' %}
+{% block body %}
+
+{% ifequal error "yes" %}
+<script>
+    alert('logged in successfully');
+    window.location=('{% url "home" %}');
+</script>
+{% endifequal %}
+{% ifequal error "not" %}
+<script>
+    alert('Username & Password are not Matching');
+</script>
+{% endifequal %}
+
+
+
+<section class="container-fluid py-4 ">
+
+  <div class="row mt-2 ">
+    <div class="col-md-7 pl-5 ">
+      <img src="/media/login.svg"
+      class="img-fluid pl-5" alt="Phone image">
+    </div>
+    <div class="col-md-4 pr-5 bg-white rounded">
+      <h2 class="pt-5 pb-2">Sign in</h2>
+      <form method="post" class="pl-3 pt-4" action="">
+        {% csrf_token %}
+        <!-- Email input -->
+        <div class="form-outline mb-4">
+          <label class="form-label" for="form1Example13">User Name</label>
+          <input type="text" id="form1Example13" placeholder="Your username " class="form-control form-control-lg"name="uname"/>
+          
+        </div>
+
+        <!-- Password input -->
+        <div class="form-outline mb-4 pb-2">
+          <label class="form-label" for="form1Example23">Password</label>
+          <input type="password" id="form1Example23" placeholder="Your password" class="form-control form-control-lg" name="pwd" />
+          
+          <a class="float-right" href="{% url 'forget_password'%}">Forgot password?</a>
+        </div>
+
+        
+        
+        <!-- Submit button -->
+        <button type="submit" class="btn pt-2 btn-success btn-lg btn-block">Sign in</button>
+
+        <br><hr>
+        <!-- <p class="text-center fw-bold mx-3 mb-0 text-muted">OR</p> -->
+        <div class="text-center pt-2 ">
+
+          <h4 class="">Don't have an account ?</h4>
+          <div>
+            <a href="{% url 'signup' %}" class="btn btn-primary btn-md active round" role="button" aria-pressed="true">Create an Account</a>
+          </div>
+
+        </div>
+        <div class="divider d-flex my-2 text-center">
+          
+          
+        </div>
+        
+        
+
+      </form>
+    </div>
+  </div>
+
+
+</section>
+
+
+{% endblock %}
+

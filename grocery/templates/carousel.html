@@ -1,0 +1,43 @@
+{% extends 'navigation.html' %}
+{% load static %}
+{% block body %}
+
+
+
+
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner" style="width:100%;height:550px">
+    <div class="carousel-item active">
+      <img src="{% static 'images/img10.avif' %}" alt="Los Angeles" style="height:550px">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'images/img12.jpg' %}" alt="New York" style="height:550px">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'images/img2.jpg' %}" alt="New York" style="height:550px">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'images/7a.jpg' %}" alt="Chicago" style="height:550px">
+    </div>
+   
+    <div class="carousel-item">
+      <img src="{% static 'images/img13.jpg' %}" alt="New York" style="height:550px">
+    </div>
+    
+
+    <div class="carousel-item">
+      <img src="{% static 'images/img1.jpg' %}" alt="New York" style="height:550px">
+    </div>
+ 
+    
+    </div>
+</div>
+
+
+
+{% block b %}
+{% endblock %}
+
+
+
+{% endblock %}
